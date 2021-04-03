@@ -2,7 +2,7 @@
   "name": "huyen.nguyen.engineer",
   "version": "1.0.0",
   "description": "huyennbl personal website",
-  "main": "index.js",  
+  "main": "index.js",
   "dependencies": {
     "antd": "4.12.3",
     "antd-group-slider": "^1.2.0",
@@ -17,8 +17,8 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.1",
     "redux": "4.0.5",
-    "redux-thunk": "2.3.0"
-  },  
+    "reqwest": "^2.0.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -49,9 +49,9 @@
   },
   "standard": {
     "env": [
-       "jest",
-       "es6",
-       "browser"
+      "jest",
+      "es6",
+      "browser"
     ],
     "parser": "babel-eslint"
   }

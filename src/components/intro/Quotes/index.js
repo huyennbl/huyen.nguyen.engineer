@@ -11,7 +11,7 @@ const Quote = ({ content, author }) => {
   )
 }
 
-const Quotes = ({ quotes }) => {
+const Quotes = ({ quotes = [] }) => {
   return (
     <div className='quotes'>
       {quotes.map((data, i) => <Quote {...data} key={`quote${i}`} />)}
