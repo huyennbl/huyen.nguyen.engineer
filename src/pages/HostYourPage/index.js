@@ -1,10 +1,10 @@
-import React from 'react'
+const React = window.React
 import { Upload, Button, message, Select, Input } from 'antd'
 import {
   UploadOutlined,
   QuestionCircleFilled
 } from '@ant-design/icons'
-import reqwest from 'reqwest'
+const { reqwest } = window
 
 import TooltipModal from './TooltipModal'
 
@@ -71,7 +71,7 @@ class HostYourPage extends React.Component {
     })
   }
 
-  render () {
+  render() {
     const { uploading, fileList } = this.state
     const props = {
       onRemove: (file) => {
@@ -136,8 +136,8 @@ class HostYourPage extends React.Component {
           </div>
           <div className='hyp__preview'>
             Your domain: {!this.state.subdomain
-            ? <></>
-            : <b>{`http://${this.state.subdomain}.${this.state.domain}`}</b>}
+              ? <></>
+              : <b>{`http://${this.state.subdomain}.${this.state.domain}`}</b>}
           </div>
           <div className='hyp__uploader-wrapper'>
             <Upload {...props} className='hyp__uploader'>

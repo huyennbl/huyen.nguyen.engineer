@@ -1,6 +1,7 @@
+const React = window.React
 import Intro from './pages/intro'
 import './App.scss'
-function App () {
+function App() {
   return (
     <div className='container'>
       <div className='content'>

@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+const React = window.React
+const ReactDOM = window.ReactDOM
 import './main.scss'
 import App from './App'
 

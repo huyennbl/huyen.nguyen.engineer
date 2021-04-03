@@ -1,3 +1,4 @@
+const React = window.React
 const Logo = ({ logo, url }) => {
   return (
     <a target='_blank' rel='noreferrer' href={url} className='history__logo-link'>

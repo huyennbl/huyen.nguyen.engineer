@@ -1,4 +1,4 @@
-import React from 'react'
+const React = window.React
 import Quotes from '../../components/intro/Quotes'
 import HistoryLogos from '../../components/intro/HistoryLogos'
 import avatar from './avatar.jpg'
