@@ -72,33 +72,11 @@
     justify-content: flex-end;
   }
 
-  &__photo {
-    height: 4.5rem;
-    width: 4.5rem;
-    border-radius: 50%;
-    margin-right: 1.5rem;
-  }
-
-  &__user-box {
-    margin-right: auto;
-  }
-
   &__user-name {
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 0.4rem;
-  }
-
-  &__user-date {
-    font-size: 1rem;
-    color: var(--color-grey-dark-3);
-  }
-
-  &__rating {
-    color: var(--color-primary);
-    font-size: 2.2rem;
-    font-weight: 300;
   }
 
   &::before {
@@ -143,10 +121,12 @@
     align-items: center;
     &-tooltip {
       margin-left: 0.5rem;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      animation-name: shake;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
       :hover {
         transform: translateY(-1px);
-        box-shadow: var(--shadow-dark);
       }
       :active {
         transform: translateY(2px);
@@ -214,5 +194,23 @@
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(2px, 0, 0);
   }
 }

@@ -1,12 +1,21 @@
-const React = window.React
-import { Upload, Button, message, Select, Input } from 'antd'
+import Button from 'antd/es/button'
+import 'antd/es/button/style/css'
+import Upload from 'antd/es/upload'
+import 'antd/es/upload/style/css'
+import Select from 'antd/es/select'
+import 'antd/es/select/style/css'
+import Input from 'antd/es/input'
+import 'antd/es/input/style/css'
+import message from 'antd/es/message'
+import 'antd/es/message/style/css'
 import {
   UploadOutlined,
   QuestionCircleFilled
 } from '@ant-design/icons'
-const { reqwest } = window
 
 import TooltipModal from './TooltipModal'
+const React = window.React
+const { reqwest } = window
 
 const { Option } = Select
 const defaultDomain = 'nguyen.engineer'
@@ -51,27 +60,28 @@ class HostYourPage extends React.Component {
 
     // You can use any AJAX library you like
     reqwest({
-      url: 'https://ecuglud1ah.execute-api.ap-southeast-1.amazonaws.com/prod/files',
+      url: 'https://zolb5dcare.execute-api.ap-southeast-1.amazonaws.com/prod/files',
       method: 'post',
       processData: false,
       data: formData,
-      success: () => {
+      success: (body) => {
         this.setState({
           fileList: [],
           uploading: false
         })
-        message.success(`Upload successfully to: ${this.state.subdomain}.${this.state.domain}`)
+        message.success(`${this.state.subdomain}.${this.state.domain} - ${body.message}`)
       },
-      error: () => {
+      error: (err) => {
+        const body = JSON.parse(err.response)
         this.setState({
           uploading: false
         })
-        message.error('upload failed.')
+        message.error(`Upload failed - ${body.message}`)
       }
     })
   }
 
-  render() {
+  render () {
     const { uploading, fileList } = this.state
     const props = {
       onRemove: (file) => {
@@ -136,8 +146,8 @@ class HostYourPage extends React.Component {
           </div>
           <div className='hyp__preview'>
             Your domain: {!this.state.subdomain
-              ? <></>
-              : <b>{`http://${this.state.subdomain}.${this.state.domain}`}</b>}
+            ? <></>
+            : <b>{`http://${this.state.subdomain}.${this.state.domain}`}</b>}
           </div>
           <div className='hyp__uploader-wrapper'>
             <Upload {...props} className='hyp__uploader'>

@@ -1,5 +1,6 @@
+import Modal from 'antd/es/modal'
+import 'antd/es/modal/style/css'
 const React = window.React
-import { Modal } from 'antd'
 
 const ulProps = {
   transform: 'translateX(5%)',
@@ -48,7 +49,10 @@ const TooltipModal = ({ visible, handleCloseModal }) => {
       </h3>
       <ul style={ulProps}>
         <li>
-          Total size limit: 30KB.
+          Total size limit per upload: 30KB.
+        </li>
+        <li>
+          No folder upload (all your files will stay in same directory)
         </li>
         <li>
           Anybody can modify your site by re-uploading files to the same domain.
@@ -60,6 +64,9 @@ const TooltipModal = ({ visible, handleCloseModal }) => {
       <ul style={ulProps}>
         <li>
           Total size limit: 10MB.
+        </li>
+        <li>
+          Folder upload
         </li>
         <li>
           You will get an authentication code. Files in the domain can only be updated with this code.
