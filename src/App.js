@@ -1,16 +1,10 @@
 import Intro from './pages/intro'
 import './App.scss'
-const React = window.React
+import React from 'react'
 function App () {
   return (
-    <div className='container'>
-      <div className='content'>
-        <main className='main-view'>
-          <div className='detail'>
-            <Intro />
-          </div>
-        </main>
-      </div>
+    <div className='detail'>
+      <Intro />
     </div>
   )
 }

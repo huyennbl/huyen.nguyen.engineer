@@ -1,6 +1,6 @@
 import Modal from 'antd/es/modal'
 import 'antd/es/modal/style/css'
-const React = window.React
+import React from 'react'
 
 const ulProps = {
   transform: 'translateX(5%)',

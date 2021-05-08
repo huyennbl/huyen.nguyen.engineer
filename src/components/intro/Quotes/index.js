@@ -1,4 +1,4 @@
-const React = window.React
+import React from 'react'
 const Quote = ({ content, author }) => {
   return (
     <figure className='quote'>

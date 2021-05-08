@@ -1,8 +1,8 @@
-const React = window.React
+import React from 'react'
 const Logo = ({ logo, url }) => {
   return (
     <a target='_blank' rel='noreferrer' href={url} className='history__logo-link'>
-      <img src={logo} alt={`logo ${url}`} height='40px' />
+      <img loading='lazy' src={logo} alt={`logo ${url}`} height='40px' />
     </a>
   )
 }

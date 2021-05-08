@@ -1,32 +1,41 @@
+import React from 'react'
 import Button from 'antd/es/button'
 import 'antd/es/button/style/css'
-import Upload from 'antd/es/upload'
 import 'antd/es/upload/style/css'
 import Select from 'antd/es/select'
-import 'antd/es/select/style/css'
 import Input from 'antd/es/input'
-import 'antd/es/input/style/css'
-import message from 'antd/es/message'
-import 'antd/es/message/style/css'
-import {
-  UploadOutlined,
-  QuestionCircleFilled
-} from '@ant-design/icons'
 
+import UploadOutlined from '@ant-design/icons/UploadOutlined'
+import QuestionCircleFilled from '@ant-design/icons/QuestionCircleFilled'
 import TooltipModal from './TooltipModal'
-const React = window.React
 const { reqwest } = window
 
 const { Option } = Select
 const defaultDomain = 'nguyen.engineer'
-
+let message
 class HostYourPage extends React.Component {
   state = {
     fileList: [],
     uploading: false,
     subdomain: '',
     domain: defaultDomain,
-    showTooltip: false
+    showTooltip: false,
+    Upload: null
+  }
+
+  componentDidMount () {
+    import('antd/es/select/style/css')
+    import('antd/es/input/style/css')
+    import('antd/es/message/style/css')
+    import('antd/es/upload/style/css')
+    import('antd/es/message').then(importedModule => {
+      message = importedModule.default
+    })
+    import('antd/es/upload').then(importedModule => {
+      this.setState({
+        Upload: importedModule.default
+      })
+    })
   }
 
   selectAfter = (
@@ -82,7 +91,7 @@ class HostYourPage extends React.Component {
   }
 
   render () {
-    const { uploading, fileList } = this.state
+    const { uploading, fileList, Upload } = this.state
     const props = {
       onRemove: (file) => {
         this.setState((state) => {
@@ -149,11 +158,18 @@ class HostYourPage extends React.Component {
             ? <></>
             : <b>{`http://${this.state.subdomain}.${this.state.domain}`}</b>}
           </div>
-          <div className='hyp__uploader-wrapper'>
-            <Upload {...props} className='hyp__uploader'>
-              <Button icon={<UploadOutlined />}>Select File</Button>
-            </Upload>
-          </div>
+          {
+            Upload
+              ? (
+                <div className='hyp__uploader-wrapper'>
+                  <Upload {...props} className='hyp__uploader'>
+                    <Button icon={<UploadOutlined />}>Select File</Button>
+                  </Upload>
+                </div>
+
+                )
+              : <></>
+          }
         </div>
       </div>
     )

@@ -1,11 +1,11 @@
 import Quotes from '../../components/intro/Quotes'
 import HistoryLogos from '../../components/intro/HistoryLogos'
-import cloudfx from './cloudfx.png'
-import elsevier from './elsevier.png'
-import element from './element.png'
+import cloudfx from './cloudfx.webp'
+import elsevier from './elsevier.webp'
+import element from './element.webp'
 import flood from './flood.svg'
 import HostYourPage from '../HostYourPage'
-const React = window.React
+import React from 'react'
 const quotes = [
   {
     content: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
