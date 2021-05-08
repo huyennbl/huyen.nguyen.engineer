@@ -1,0 +1,16 @@
+.tabs {
+  .ant-tabs-nav {
+    background-color: var(--color-grey-light-1);
+    padding-left: 4.5rem;
+    padding-top: 4rem;
+
+    margin: 0px;
+  }
+  .ant-tabs-tab-btn {
+    color: var(--color-primary) !important;
+    font-size: 2rem;
+  }
+  .ant-tabs-ink-bar {
+    background: var(--color-primary) !important;
+  }
+}
